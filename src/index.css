@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-ink: #050507;
+  --color-cream: #f4f1ea;
+  --color-accent: #8b5cf6;
+  --color-accent-soft: #c4b5fd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* ---- Scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Intro overlay ---- */
+@keyframes intro-fade {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+.intro-overlay {
+  animation: intro-fade 1s ease 2.1s forwards;
+}
+@keyframes intro-text {
+  0% { opacity: 0; transform: translateY(14px); letter-spacing: 0.3em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: 0.12em; }
+}
+.intro-text {
+  animation: intro-text 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+/* ---- Hero glow ---- */
+@keyframes drift {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-46%, -54%) scale(1.12); }
+}
+.hero-glow {
+  animation: drift 12s ease-in-out infinite;
+}
+
+/* ---- Scroll hint ---- */
+@keyframes hint-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+.scroll-hint {
+  animation: hint-bounce 2s ease-in-out infinite;
+}
+
+/* ---- Live dot pulse ---- */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+.live-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+/* ---- Execution feed ticker ---- */
+@keyframes feed-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.feed-row {
+  animation: feed-in 0.5s ease both;
+}
