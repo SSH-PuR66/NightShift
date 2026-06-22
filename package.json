@@ -8,7 +8,8 @@
     "server": "node server/index.js",
     "build": "vite build",
     "start": "node server/index.js",
-    "preview": "vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -22,10 +23,12 @@
     "stripe": "^18.2.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.42.1",
     "@tailwindcss/vite": "^4.1.10",
     "@vitejs/plugin-react": "^4.5.2",
     "concurrently": "^9.1.2",
     "tailwindcss": "^4.1.10",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "wrangler": "^4.103.0"
   }
 }
