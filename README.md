@@ -1,5 +1,11 @@
 # NightShift
 
+**Created and maintained by [Sergio Rodriguez (SSH-PuR66)](https://github.com/SSH-PuR66).**
+
+**One application, two execution surfaces.** A React interface and Express/SQLite service for agent-based workflows. Inspect [the scripts and dependencies](package.json), [the backend](server/), and [the application source](src/) before tracing a provider response into persisted state.
+
+The quickstart below runs the local stack. Provider availability, billing, and deployed business outcomes are separate from the source implementation.
+
 Your AI team that works while you sleep. Full-stack: React + Tailwind frontend, Express + SQLite backend, multi-provider free AI router, and Stripe payments.
 
 ## Quick start
